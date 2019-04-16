@@ -1,12 +1,38 @@
 <html>
   <head>
-    <title>W02: Example 04</title>
+    <title>W02: Task 02</title>
+
+
+
   </head>
-  <body>
-    <p id=“target”></p>
+  <body>  
+    
+    <script src="vec3.js"></script>
+    <script src="vec4.js"></script>
+    x0:<input type="numberr" name="x0" id="x0"/> <br>
+    y0: <input type="number" name="y0" id="y0"/> <br>
+    z0: <input type="number" name="z0" id="z0"/> <br>
+    x1:<input type="number" name="x1" id="x1"/> <br>
+    y1: <input type="number" name="y1" id="y1"/> <br>
+    z1: <input type="number" name="z1" id="z1"/> <br>
+    x2:<input type="number" name="x2" id="x2"/> <br>
+    y2: <input type="number" name="y2" id="y2"/> <br>
+    z2: <input type="number" name="z2" id="z2"/> <br>
+    <input type="button" value="ok" onclick="check()">
     <script>
-      document.getElementById(“target”).innerHTML
-      = “Hello World!”;
+
+     
+	
+      //var x1, y1, z1; // (input vertex 1)
+      //var x2, y2, z2; // (input vertex 2)
+      var v0 = new Vec3( x0, y0, z0 );
+      var v1 = new Vec3( x1, y1, z1 );
+      var v2 = new Vec3( x2, y2, z2 );
+      //var S = AreaOfTriangle( v0, v1, v2 ); // (output value)  
+      //document.write(x0);
+     
+
+
     </script>
   </body>
 </html>
