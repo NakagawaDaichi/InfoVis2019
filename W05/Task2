@@ -1,0 +1,13 @@
+<html>
+    <head>
+	<title>W05: Example 01</title>
+    </head>
+    <body>
+	<script src="https://mrdoob.github.io/three.js/build/three.min.js"></script>
+	<script src="THREE.js"></script>
+	<script>
+  //  document.write("Hello World!");
+	 three();
+	</script>
+    </body>
+</html>
