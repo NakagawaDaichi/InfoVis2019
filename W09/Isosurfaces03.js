@@ -1,7 +1,39 @@
-function Isosurfaces( volume, isovalue )
+function Isosurfaces03( volume, isovalue )
 {
     var geometry = new THREE.Geometry();
-    var material = new THREE.MeshLambertMaterial();
+    //var material = new THREE.MeshLambertMaterial();
+
+    var width = 500;
+    var height = 500;
+
+    var scene = new THREE.Scene();
+
+    var fov = 45;
+    var aspect = width / height;
+    var near = 1;
+    var far = 1000;
+
+    var camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
+    camera.position.set( 0, 0, 5 );
+    scene.add( camera );
+
+
+    var light = new THREE.PointLight();
+    light.position.set( 10, 10, 10 );
+    scene.add( light );
+
+    var material = new THREE.ShaderMaterial({
+vertexColors: THREE.VertexColors,
+vertexShader: document.getElementById('gouraud.vert').text,
+fragmentShader: document.getElementById('gouraud.frag').text,
+uniforms: {
+light_position: { type: 'v3', value: light.position }
+}
+});
+
+
+
+
 
 
     var smin = volume.min_value;
@@ -63,7 +95,7 @@ function Isosurfaces( volume, isovalue )
 
     geometry.computeVertexNormals();
 
-    material.color = new THREE.Color( "blue" );
+    //material.color = new THREE.Color( "blue" );
 
     return new THREE.Mesh( geometry, material );
 
@@ -111,6 +143,6 @@ function Isosurfaces( volume, isovalue )
 
     function interpolated_vertex( v0, v1, s )
     {
-        return new THREE.Vector3().addVectors( v0, v1 ).divideScalar( s );
+        return new THREE.Vector3().addVectors( v0, v1 ).divideScalar( 2 );
     }
 }

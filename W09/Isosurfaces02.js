@@ -1,4 +1,4 @@
-function Isosurfaces( volume, isovalue )
+function Isosurfaces02( volume, isovalue )
 {
     var geometry = new THREE.Geometry();
     var material = new THREE.MeshLambertMaterial();
@@ -28,6 +28,122 @@ function Isosurfaces( volume, isovalue )
                     var eid1 = lut.edgeID[index][j+2];
                     var eid2 = lut.edgeID[index][j+1];
 
+                    if (eid0 == 0){
+                      var iid0 =  volume.values[ indices[0] ][0];
+                      var iid1 =  volume.values[ indices[1] ][0];
+                    } else if (eid0 == 1){
+                      var iid0 =  volume.values[ indices[1] ][0];
+                      var iid1 =  volume.values[ indices[2] ][0];
+                    } else if (eid0 == 2){
+                      var iid0 =  volume.values[ indices[2] ][0];
+                      var iid1 =  volume.values[ indices[3] ][0];
+                    } else if (eid0 == 3){
+                      var iid0 =  volume.values[ indices[3] ][0];
+                      var iid1 =  volume.values[ indices[0] ][0];
+                    } else if (eid0 == 4){
+                      var iid0 =  volume.values[ indices[4] ][0];
+                      var iid1 =  volume.values[ indices[5] ][0];
+                    } else if (eid0 == 5){
+                      var iid0 =  volume.values[ indices[5] ][0];
+                      var iid1 =  volume.values[ indices[6] ][0];
+                    } else if (eid0 == 6){
+                      var iid0 =  volume.values[ indices[6] ][0];
+                      var iid1 =  volume.values[ indices[7] ][0];
+                    } else if (eid0 == 7){
+                      var iid0 =  volume.values[ indices[7] ][0];
+                      var iid1 =  volume.values[ indices[4] ][0];
+                    } else if (eid0 == 8){
+                      var iid0 =  volume.values[ indices[0] ][0];
+                      var iid1 =  volume.values[ indices[4] ][0];
+                    } else if (eid0 == 9){
+                      var iid0 =  volume.values[ indices[1] ][0];
+                      var iid1 =  volume.values[ indices[5] ][0];
+                    } else if (eid0 == 10){
+                      var iid0 =  volume.values[ indices[2] ][0];
+                      var iid1 =  volume.values[ indices[6] ][0];
+                    } else if (eid0 == 11){
+                      var iid0 =  volume.values[ indices[3] ][0];
+                      var iid1 =  volume.values[ indices[7] ][0];
+                    }
+
+                    if (eid1 == 0){
+                      var iid2 =  volume.values[ indices[0] ][0];
+                      var iid3 =  volume.values[ indices[1] ][0];
+                    } else if (eid1 == 1){
+                      var iid2 =  volume.values[ indices[1] ][0];
+                      var iid3 =  volume.values[ indices[2] ][0];
+                    } else if (eid1 == 2){
+                      var iid2 =  volume.values[ indices[2] ][0];
+                      var iid3 =  volume.values[ indices[3] ][0];
+                    } else if (eid1 == 3){
+                      var iid2 =  volume.values[ indices[3] ][0];
+                      var iid3 =  volume.values[ indices[0] ][0];
+                    } else if (eid1 == 4){
+                      var iid2 =  volume.values[ indices[4] ][0];
+                      var iid3 =  volume.values[ indices[5] ][0];
+                    } else if (eid1 == 5){
+                      var iid2 =  volume.values[ indices[5] ][0];
+                      var iid3 =  volume.values[ indices[6] ][0];
+                    } else if (eid1 == 6){
+                      var iid2 =  volume.values[ indices[6] ][0];
+                      var iid3 =  volume.values[ indices[7] ][0];
+                    } else if (eid1 == 7){
+                      var iid2 =  volume.values[ indices[7] ][0];
+                      var iid3 =  volume.values[ indices[4] ][0];
+                    } else if (eid1 == 8){
+                      var iid2 =  volume.values[ indices[0] ][0];
+                      var iid3 =  volume.values[ indices[4] ][0];
+                    } else if (eid1 == 9){
+                      var iid2 =  volume.values[ indices[1] ][0];
+                      var iid3 =  volume.values[ indices[5] ][0];
+                    } else if (eid1 == 10){
+                      var iid2 =  volume.values[ indices[2] ][0];
+                      var iid3 =  volume.values[ indices[6] ][0];
+                    } else if (eid1 == 11){
+                      var iid2 =  volume.values[ indices[3] ][0];
+                      var iid3 =  volume.values[ indices[7] ][0];
+                    }
+
+                    if (eid2 == 0){
+                      var iid4 =  volume.values[ indices[0] ][0];
+                      var iid5 =  volume.values[ indices[1] ][0];
+                    } else if (eid2 == 1){
+                      var iid4 =  volume.values[ indices[1] ][0];
+                      var iid5 =  volume.values[ indices[2] ][0];
+                    } else if (eid2 == 2){
+                      var iid4 =  volume.values[ indices[2] ][0];
+                      var iid5 =  volume.values[ indices[3] ][0];
+                    } else if (eid2 == 3){
+                      var iid4 =  volume.values[ indices[3] ][0];
+                      var iid5 =  volume.values[ indices[0] ][0];
+                    } else if (eid2 == 4){
+                      var iid4 =  volume.values[ indices[4] ][0];
+                      var iid5 =  volume.values[ indices[5] ][0];
+                    } else if (eid2 == 5){
+                      var iid4 =  volume.values[ indices[5] ][0];
+                      var iid5 =  volume.values[ indices[6] ][0];
+                    } else if (eid2 == 6){
+                      var iid4 =  volume.values[ indices[6] ][0];
+                      var iid5 =  volume.values[ indices[7] ][0];
+                    } else if (eid2 == 7){
+                      var iid4 =  volume.values[ indices[7] ][0];
+                      var iid5 =  volume.values[ indices[4] ][0];
+                    } else if (eid2 == 8){
+                      var iid4 =  volume.values[ indices[0] ][0];
+                      var iid5 =  volume.values[ indices[4] ][0];
+                    } else if (eid2 == 9){
+                      var iid4 =  volume.values[ indices[1] ][0];
+                      var iid5 =  volume.values[ indices[5] ][0];
+                    } else if (eid2 == 10){
+                      var iid4 =  volume.values[ indices[2] ][0];
+                      var iid5 =  volume.values[ indices[6] ][0];
+                    } else if (eid2 == 11){
+                      var iid4 =  volume.values[ indices[3] ][0];
+                      var iid5 =  volume.values[ indices[7] ][0];
+                    }
+
+
+
                     var vid0 = lut.vertexID[eid0][0];
                     var vid1 = lut.vertexID[eid0][1];
                     var vid2 = lut.vertexID[eid1][0];
@@ -42,12 +158,24 @@ function Isosurfaces( volume, isovalue )
                     var v4 = new THREE.Vector3( x + vid4[0], y + vid4[1], z + vid4[2] );
                     var v5 = new THREE.Vector3( x + vid5[0], y + vid5[1], z + vid5[2] );
 
-                    var v01 = interpolated_vertex( v0, v1, isovalue );
-                    var v23 = interpolated_vertex( v2, v3, isovalue );
-                    var v45 = interpolated_vertex( v4, v5, isovalue );
+                    //var v01 = interpolated_vertex( v0, v1, isovalue);
+                    //var v23 = interpolated_vertex( v2, v3, isovalue);
+                    //var v45 = interpolated_vertex( v4, v5, isovalue);
 
-                    document.write(isovalue);
-                    document.write("test");
+                    var v01 = interpolated_vertex( v0, v1, isovalue ,iid0,iid1);
+                    var v23 = interpolated_vertex( v2, v3, isovalue ,iid2,iid3);
+                    var v45 = interpolated_vertex( v4, v5, isovalue ,iid4,iid5);
+
+                    //document.write(s77);
+                    //document.write(s33);
+                    //document.write("op");
+                    //s = 128
+                    //var xx = ((s33 - s)*v1[0] + (s -s77)*v0[0])/(s77 - s33);
+                    //var yy = ((s33 - s)*v1[1] + (s -s77)*v0[1])/(s77 - s33);
+                    //var zz = ((s33 - s)*v1[2] + (s -s77)*v0[2])/(s77 - s33);
+
+                    //document.write(v0.x);
+
                     geometry.vertices.push( v01 );
                     geometry.vertices.push( v23 );
                     geometry.vertices.push( v45 );
@@ -111,10 +239,17 @@ function Isosurfaces( volume, isovalue )
         return index;
     }
 
-    function interpolated_vertex( v0, v1, s )
+    function interpolated_vertex( v0, v1, s ,s1,s2 )
     {
-
-        return new THREE.Vector3().addVectors( v0, v1 ).divideScalar( 2 );
+        //s = Math.floor((s1 - s2) / 2 );
+        //var xx = Math.floor(((s1 - s)*v1.x + (s -s2)*v0.x)/(s1 - s2));
+        //var yy = Math.floor(((s1 - s)*v1.y + (s -s2)*v0.y)/(s1 - s2));
+        //var zz = Math.floor(((s1 - s)*v1.z + (s -s2)*v0.z)/(s1 - s2));
+        var xx = ((s1 - s)*v1.x + (s -s2)*v0.x) / (s1 - s2);
+        var yy = ((s1 - s)*v1.y + (s -s2)*v0.y) / (s1 - s2);
+        var zz = ((s1 - s)*v1.z + (s -s2)*v0.z) / (s1 - s2);
+        //return new THREE.Vector3().addVectors( v0, v1 ).divideScalar( 2 );
+        return new THREE.Vector3(xx,yy,zz);
         //return new new THREE.Vector3( 2, 2, 2 );
     }
 }
