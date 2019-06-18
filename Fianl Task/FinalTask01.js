@@ -1,16 +1,37 @@
 function main02()
 {
-    var range = document.querySelector("[type=range]");
+    var range = document.querySelector("[id=isovalue]");
+    var color = document.querySelector("[id=colors]");
+    var shares = document.querySelector("[id=share]");
     var volume = new KVS.LobsterData();
     var screen = new KVS.THREEScreen();
+    var colors = 0;
 
     range.addEventListener('input', function() {
       //document.write(range.value);
       screen.scene.remove( surfaces );
       isovalue = 128*range.value;
-      surfaces = Isosurfaces02( volume, isovalue )
+      surfaces = Isosurfaces02( volume, isovalue ,colors)
       screen.scene.add( surfaces );
     });
+
+    color.addEventListener('input', function() {
+      //document.write(colors.value);
+      screen.scene.remove( surfaces );
+      colors = color.value;
+      surfaces = Isosurfaces02( volume, isovalue ,colors)
+      screen.scene.add( surfaces );
+    });
+
+    shares.addEventListener('input', function() {
+      //document.write(colors.value);
+      screen.scene.remove( surfaces );
+      isovalue = 128*shares.value;
+      colors = 256*shares.value;
+      surfaces = Isosurfaces02( volume, isovalue ,colors)
+      screen.scene.add( surfaces );
+    });
+
     //document.write(range.value);
 
     screen.init( volume, {
@@ -25,7 +46,7 @@ function main02()
     screen.scene.add( bounds );
 
     var isovalue = 128;
-    var surfaces = Isosurfaces02( volume, isovalue );
+    var surfaces = Isosurfaces02( volume, isovalue , colors);
     screen.scene.add( surfaces );
 
     document.addEventListener( 'mousemove', function() {

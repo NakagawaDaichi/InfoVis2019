@@ -1,4 +1,4 @@
-function Isosurfaces02( volume, isovalue )
+function Isosurfaces02( volume, isovalue ,colors)
 {
     var geometry = new THREE.Geometry();
     var material = new THREE.MeshLambertMaterial();
@@ -193,7 +193,15 @@ function Isosurfaces02( volume, isovalue )
 
     geometry.computeVertexNormals();
 
-    material.color = new THREE.Color( "blue" );
+    // Create color map
+
+    var S = colors / 255.0; // [0,1]
+    var R = Math.max( Math.cos( ( S - 1.0 ) * Math.PI ), 0.0 );
+    var G = Math.max( Math.cos( ( S - 0.5 ) * Math.PI ), 0.0 );
+    var B = Math.max( Math.cos( S * Math.PI ), 0.0 );
+
+    material.color = new THREE.Color( R,G,B);
+    //material.color = new THREE.Color( "blue" );
 
     return new THREE.Mesh( geometry, material );
 
